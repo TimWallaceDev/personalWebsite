@@ -8,6 +8,5 @@ urlpatterns = [
     path('samplelist', views.samplelist),
     path('keywordadmin', views.admin, name='admin'),
     path('about', views.about),
-    path('topwords', views.topwords),
     path('33', views.thirtythree),
 ]

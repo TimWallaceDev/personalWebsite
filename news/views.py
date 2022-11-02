@@ -8,60 +8,6 @@ import pytz
 #from .scraper import *
 from .models import *
 
-def topwords(request):
-    date = '2022' + '05' + '07' + '0900'
-
-    print(date)
-
-    #Top words for each org TODAY
-    cbc = BoneBrothArchive.objects.filter(org='cbc', date=date).order_by('-count')[:20]
-    ctv = BoneBrothArchive.objects.filter(org='ctv', date=date).order_by('-count')[:20]
-    glob = BoneBrothArchive.objects.filter(org='global', date=date).order_by('-count')[:20]
-
-    abc = BoneBrothArchive.objects.filter(org='abc', date=date).order_by('-count')[:20]
-    cbs = BoneBrothArchive.objects.filter(org='cbs', date=date).order_by('-count')[:20]
-    nbc = BoneBrothArchive.objects.filter(org='nbc', date=date).order_by('-count')[:20]
-
-
-    
-    #Top words COMBINED
-
-    topcombined = []
-
-    for entry in abc[:4]:
-        if entry.word not in topcombined:
-            topcombined.append(entry.word)
-
-    for entry in cbs[:4]:
-        if entry.word not in topcombined:
-            topcombined.append(entry.word)
-
-    for entry in nbc[:4]:
-        if entry.word not in topcombined:
-            topcombined.append(entry.word)
-
-    for entry in cbc[:4]:
-        if entry.word not in topcombined:
-            topcombined.append(entry.word)
-
-    for entry in ctv[:4]:
-        if entry.word not in topcombined:
-            topcombined.append(entry.word)
-
-    for entry in glob[:4]:
-        if entry.word not in topcombined:
-            topcombined.append(entry.word)
-
-    #save top words for today
-
-    for word in topcombined:
-        newTopWord = TopWords(word=word, date=date)
-        newTopWord.save()
-
-    print("done")
-        
-    return render(request, 'news/about.html')
-
 def about(request):
     return render(request, 'news/about.html')
 
@@ -97,10 +43,10 @@ def index(request):
     nbc = TopWordsByOrg.objects.filter(org='nbc', date=todaysdate).order_by('id')[:20]
     
     #bbc
-    bbc = TopWordsByOrg.objects.filter(org='bbc', date=todaysdate).order_by('id')[:20]
+    #bbc = TopWordsByOrg.objects.filter(org='bbc', date=todaysdate).order_by('id')[:20]
     
     #sky
-    sky = TopWordsByOrg.objects.filter(org='sky', date=todaysdate).order_by('id')[:20]
+    #sky = TopWordsByOrg.objects.filter(org='sky', date=todaysdate).order_by('id')[:20]
 
     #Top words COMBINED
 
@@ -189,7 +135,7 @@ def admin(request):
 
         date = year + month + day + hour
 
-        print(date)
+        #print(date)
 
         cbc = BoneBrothArchive.objects.filter(org='cbc', date=date).order_by('-count')[:20]
         ctv = BoneBrothArchive.objects.filter(org='ctv', date=date).order_by('-count')[:20]

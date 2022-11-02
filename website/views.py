@@ -1,26 +1,10 @@
 import requests
 from django.shortcuts import render
 from django.http import HttpResponse
-import smtplib
 import requests
 from bs4 import BeautifulSoup
 
 # Create your views here.
-def test():
-	print('this is not a test')
-	with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-            smtp.ehlo()
-            smtp.starttls()
-            smtp.ehlo()
-
-            smtp.login('timwallace959@gmail.com', 'password')
-
-            subject = 'IN STOCK NOW'
-            body = 'TIRES IN STOCK NOW: https://radpowerbikes.ca/collections/replacement-parts/products/kenda-kraze-20-x-4-25-tire'
-
-            msg = f'Subject: {subject}/n/n{body}'
-
-            smtp.sendmail('timwallace959@gmail.com', 'timwallace959@gmail.com', msg)
             
 #MAIN WEBSITE
 
@@ -62,7 +46,7 @@ def imageGenerator(request):
                 images.append(img.get('src'))
 
 
-            return HttpResponse(images[1])
+            return HttpResponse(f"<img src='{images[1]}'>")
         except:
             return HttpResponse("No images found")
 #TASKS
