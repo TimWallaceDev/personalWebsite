@@ -1,0 +1,291 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9EF8DLF3P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-P9EF8DLF3P');
+        </script>
+        <title>Keyword Tracker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'news/indexvar.css' %}">
+
+        </script>
+    </head>
+    <body>
+        <!--NAV-->
+        <ul class="nav justify-content-left">
+            <li class="nav-item">
+              <a class="nav-link active" href="/news">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news/samplelist">Keyword Grapher</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news/about">About</a>
+            </li>
+        </ul>
+
+        <!--Title-->
+        <h1>Keyword Tracker MAXX 🔍</h1>
+        <p class="text-center"><em>Tracking the most frequently used words in frontpage news</em></p>
+        <p class="text-center"><b>{{ date }}</b></p>
+      <!--TOP-->
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="card col-sm-12 col-lg-2">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">New Top Words 🌟</h5>
+                      <p class="text-center"><em>These words weren't top words yesterday</em></p>
+                      <hr>
+                      <p class="card-text">
+                          <div class="row">
+                            <ul class="text-center">
+                                {% for word in topnew %}
+                                <li><a href="https://news.google.com/search?q={{word}}">{{ word }}</a></li>
+                                {% empty %}
+                                <p>Looks like something went wrong... Check back soon...</p>
+                                {% endfor %}
+                            </ul>
+                          </div>
+                      </p>
+                    </div>
+                </div>
+
+                <div class="card col-sm-12 col-lg-3">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Persistent Top Words ⬆️</h5>
+                      <p class="text-center"><em>These words were also top words yesterday</em></p>
+                      <hr>
+                      <p class="card-text">
+                          <div class="row topwords">
+                            <ul class="sm-col-12 md-col-6 text-center" style="width: 100%">
+                                {% for word in topcombined1 %}
+                                <li><a href="https://news.google.com/search?q={{word}}">{{ word }}</a></li>
+                                {% empty %}
+                                <p>Looks like something went wrong... Check back soon...</p>
+                                {% endfor %}
+                            </ul>
+                            <ul class="sm-col-12 md-col-6 text-center" style="width: 100%">
+                                {% for word in topcombined2 %}
+                                <li><a href="https://news.google.com/search?q={{word}}">{{ word }}</a></li>
+                                {% endfor %}
+                            </ul>
+                          </div>
+                      </p>
+                    </div>
+                </div>
+
+                <div class="card col-sm-12 col-lg-4">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Todays Millions! 📈</h5>
+                      <p class="text-center"><em>Headlines about millions!</em></p>
+                      <hr>
+                      <p class="card-text">
+                        <ol>
+                            {% for word in millions %}
+                            <li><a href="https://news.google.com/search?q={{word}}">{{ word|safe }}</a></li>
+                            <hr>
+                            {% empty %}
+                            <li>No Millions today...</li>
+                            {% endfor %}
+                           
+                        </ol>
+                      </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr class="padding">
+
+        <!--CANADA-->
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <h2 class="canada text-center">Canada 🇨🇦</h2>
+                <div class="row">
+    
+                    <div class="card col-sm-12 col-lg-3">
+                        <div class="card-body">
+                          <h5 class="canada card-title text-center">CBC 🇨🇦</h5>
+                          <hr>
+                          <p class="card-text">
+                              <div class="row">
+                                <ul class="col-6">
+                                    {% for word in cbc1 %}
+                                    <li><a href="https://www.cbc.ca/search?q={{ word.word }}&section=news&sortOrder=relevance&media=all">{{ word.word }}</a></li>
+                                    {% empty %}
+                                    <p>Looks like something went wrong... Check back soon...</p>
+                                    {% endfor %}
+                                </ul>
+                                <ul class="col-6">
+                                    {% for word in cbc2 %}
+                                    <li><a href="https://www.cbc.ca/search?q={{ word.word }}&section=news&sortOrder=relevance&media=all">{{ word.word }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>              
+                          </p>
+                        </div>
+                    </div>
+            
+                    <div class="card col-sm-12 col-lg-3">
+                        <div class="card-body">
+                          <h5 class="canada card-title text-center">CTV 🇨🇦</h5>
+                          <hr>
+                          <p class="card-text">
+                              <div class="row">
+                                <ul class="col-6">
+                                    {% for word in ctv1 %}
+                                    <li><a href="https://www.ctvnews.ca/search-results/search-ctv-news-7.137?q={{ word.word }}">{{ word.word }}</a></li>
+                                    
+                                    {% empty %}
+                                    <p>Looks like something went wrong... Check back soon...</p>
+                                    {% endfor %}
+                                </ul>
+                                <ul class="col-6">
+                                {% for word in ctv2 %}
+                                <li><a href="https://www.ctvnews.ca/search-results/search-ctv-news-7.137?q={{ word.word }}">{{ word.word }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                            
+                          </p>
+                        </div>
+                    </div>
+    
+                    <div class="card col-sm-12 col-lg-3">
+                        <div class="card-body">
+                          <h5 class="canada card-title text-center">Global 🇨🇦</h5>
+                          <hr>
+                          <p class="card-text">
+                              <div class="row">
+                                <ul class="col-6">
+                                    {% for word in global1 %}
+                                    <li><a href="https://globalnews.ca/search/{{ word.word }}">{{ word.word }}</a></li>
+                                    {% empty %}
+                                    <p>Looks like something went wrong... Check back soon...</p>
+                                    {% endfor %}
+                                </ul>
+                                <ul class="col-6">
+                                    {% for word in global2 %}
+                                    <li><a href="https://globalnews.ca/search/{{ word.word }}">{{ word.word }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            
+                          </p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+        <hr class="padding">
+
+        
+
+        <!--USA-->
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <h2 class="text-center"><span style="color: red;">U</span><span style="color: black;">S</span><span style="color: blue;">A</span> 🇺🇸</h2>
+                <div class="row">                
+    
+                    <div class="card col-sm-12 col-lg-3">
+                        <div class="card-body">
+                          <h5 class="card-title text-center usa">CBS 🇺🇸</h5>
+                          <hr>
+                          <p class="card-text">
+                            <div class="row">
+                                <ul class="col-6">
+                                    {% for word in cbs1 %}
+                                    <li><a href="https://news.google.com/search?q={{word.word}}">{{ word.word }}</a></li>
+                                    {% empty %}
+                                    <p>Looks like something went wrong... Check back soon...</p>
+                                    {% endfor %}
+                                </ul>
+                                <ul class="col-6">
+                                    {% for word in cbs2 %}
+                                    <li><a href="https://news.google.com/search?q={{word.word}}">{{ word.word }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                          </p>
+                        </div>
+                    </div>
+            
+                    <div class="card col-sm-12 col-lg-3">
+                        <div class="card-body">
+                          <h5 class="card-title text-center usa">NBC 🇺🇸</h5>
+                          <hr>
+                          <p class="card-text">
+                            <div class="row">
+                                <ul class="col-6">
+                                    {% for word in nbc1 %}
+                                    <li><a href="https://nbcnews.com/search/?q={{word.word}}">{{ word.word }}</a></li>
+                                    {% empty %}
+                                    <p>Looks like something went wrong... Check back soon...</p>
+                                    {% endfor %}
+                                </ul>
+                                <ul class="col-6">
+                                    {% for word in nbc2 %}
+                                    <li><a href="https://nbcnews.com/search/?q={{word.word}}">{{ word.word }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                          </p>
+                        </div>
+                    </div>
+    
+                    <div class="card col-sm-12 col-lg-3">
+                        <div class="card-body">
+                          <h5 class="card-title text-center usa">ABC 🇺🇸</h5>
+                          <hr>
+                          <p class="card-text">
+                            <div class="row">
+                                <ul class="col-6">
+                                    {% for word in abc1 %}
+                                    <li><a href="https://abcnews.go.com/search?searchtext={{word.word}}">{{ word.word }}</a></li>
+                                    {% empty %}
+                                    <p>Looks like something went wrong... Check back soon...</p>
+                                    {% endfor %}
+                                </ul>
+                                <ul class="col-6">
+                                    {% for word in abc2 %}
+                                    <li><a href="https://abcnews.go.com/search?searchtext={{word.word}}">{{ word.word }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                          </p>
+                        </div>
+                    </div>
+                    
+                    
+    
+                </div>
+            </div>
+        </div>
+        
+        <hr class="padding">
+        
+
+        <footer>
+            <hr>
+            
+            <p>By <a class="text-center" href="htpps://timwallace.ca" style="color: white;">TimWallace.ca</a> - 2022</p>
+            <hr>
+            <p>Please don't DOS</p>
+            <p>Please don't DDOS</p>
+        </footer>
+
+    </body>
+</html>

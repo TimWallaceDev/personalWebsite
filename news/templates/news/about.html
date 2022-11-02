@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9EF8DLF3P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-P9EF8DLF3P');
+        </script>
+        <title>About</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'news/indexvar.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <!--NAV-->
+        <ul class="nav justify-content-left">
+            <li class="nav-item">
+              <a class="nav-link active" href="/news">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news/samplelist">Keyword Grapher</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news/about">About</a>
+            </li>
+        </ul>
+
+        <h1>About</h1>
+
+        <p class="padd">This Website hosts a database tracking all words that news organizations have used since 2019. You can use the keyword tracker MAXX to visually graph keywords over time. Keyword tracker MAXX is flexible. You can fill in the keyword and select the organization. Select all the same organizations and compare different words, or select different organizations and track the same word. Mix them both up if you're feeling crazy.</p>
+
+        <h2>Purpose</h2>
+
+        <p class="padd">My hope is to find the unexpected, and follow trends.</p>
+
+        <h2>Methods and Limitations</h2>
+
+        <p class="padd">All HTML was scraped from <a href='https://archive.org'>archive.org</a>. Their URLs are structured perfectly for programatically querying which is awesome.</p>
+        <p class="padd">I've collected various datasets based on different scraping methods. <strong>BoneBroth</strong> is a custom method that attempts to only track words found within the body of the webpage. However, it is not perfect. I've also put together a list of keywords to track for a <strong>DeepSearch</strong>. This method uses regex to find any mention of the word in the entire HTML document. This also has it's flaws and limitations. </p>
+
+    </body>
+</html>

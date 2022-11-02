@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>Keyword Tracker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'news/indexvar.css' %}">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9EF8DLF3P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-P9EF8DLF3P');
+        </script>
+    </head>
+    <body>
+        <!--NAV-->
+        <ul class="nav justify-content-left">
+            <li class="nav-item">
+              <a class="nav-link active" href="/news">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news/samplelist">Keyword Grapher</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news/about">About</a>
+            </li>
+        </ul>
+        
+        <h1>It's The Magic Number</h1>
+
+		<div class="card col-12">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">33! 📈</h5>
+                      <p class="text-center"><em>Headlines containing 33!</em></p>
+                      <hr>
+                      <p class="card-text">
+                        <ol>
+                            {% for word in thirtythrees %}
+                            <li>{{ word|safe }}</li>
+                            <hr>
+                            {% empty %}
+                            <li>No 33's today...</li>
+                            {% endfor %}
+                           
+                        </ol>
+                      </p>
+                    </div>
+                </div>
+        
+
+        <footer>
+            <hr>
+            
+            <p>By <a class="text-center" href="htpps://timwallace.ca" style="color: white;">TimWallace.ca</a> - 2022</p>
+            <hr>
+            <p>Please don't DOS</p>
+            <p>Please don't DDOS</p>
+        </footer>
+
+    </body>
+</html>

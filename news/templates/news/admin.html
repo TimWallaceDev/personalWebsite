@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9EF8DLF3P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-P9EF8DLF3P');
+        </script>
+        <title>Keywords Admin</title>
+        <style>
+            p {
+                display: inline-block;
+            }
+            .card {
+                width: 30%;
+                height: 50vh;
+                display: inline-block;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Keyword Admin</h1>
+
+        <h2>Add Keyword</h2>
+        <form action='/news/keywordadmin' method='post'>
+            {% csrf_token %}
+            <input type='text' name='word'>
+            <input type='hidden' value='whitelist' name='list'>
+            <input type='submit'>
+        </form>
+        <p>
+            {% for keyword in keywords %}
+            {{ keyword.word  }}, 
+            {% endfor %}
+        </p>
+
+        <h2>Add Blacklist</h2>
+        <form action='/news/keywordadmin' method='post'>
+            {% csrf_token %}
+            <input type='text' name='word' autofocus>
+            <input type='hidden' value='blacklist' name='list'>
+            <input type='submit'>
+        </form>
+        <p>
+            {% for list in blacklist %}
+            {{ list.word }}, 
+            {% endfor %}
+        </p>
+        
+        <div class="card">
+
+            <h2>Top Daily ABC</h2>
+
+            {% for top in abc %}
+            <p>{{ top.word }} | </p>
+            {% endfor %}
+        </div>
+
+        <div class="card">
+
+            <h2>Top Daily CBS</h2>
+
+            {% for top in cbs %}
+            <p>{{ top.word }} | </p>
+            {% endfor %}
+        </div>
+
+        <div class="card">
+
+            <h2>Top Daily NBC</h2>
+
+            {% for top in nbc %}
+            <p>{{ top.word }} | </p>
+            {% endfor %}
+        </div>
+
+        <div class="card">
+
+            <h2>Top Daily CBC</h2>
+
+            {% for top in cbc %}
+            <p>{{ top.word }} | </p>
+            {% endfor %}
+        </div>
+
+        <div class="card">
+
+            <h2>Top Daily CTV</h2>
+
+            {% for top in ctv %}
+            <p>{{ top.word }} | </p>
+            {% endfor %}
+        </div>
+
+        <div class="card">
+
+            <h2>Top Daily GLOBAL</h2>
+
+            {% for top in global %}
+            <p>{{ top.word }} | </p>
+            {% endfor %}
+        </div>
+
+    </body>
+</html>
