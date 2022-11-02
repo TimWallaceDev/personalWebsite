@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>It Pays To Quit</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'website/paystoquit.css' %}">
+        <script src="{% static 'website/paystoquit.js' %}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <nav>
+            <button id="closeMenuBtn">Close Menu</button>
+
+            <div id="habitControl">
+                
+                <!--Add Reward-->
+                <div id="addRewards">
+                    <div id="rewardForm">
+                        <h2>Add Rewards</h2>
+                        <input class="inputField" required id="rewardName" type="text" placeholder="reward name">
+                        <input class="inputField" min=0.01 id="rewardCost" type="number" placeholder="One time cost">
+                        <input id="rewardurl" type="text" placeholder="image URL (optional)">
+                        <input class="inputField" id="submitReward" type="submit" value="add reward">        
+                    </div>
+                </div>
+
+                <!--Add habit-->
+                <div id="addHabits">
+                    <div id="habitForm">
+                        <h2>Add Habit</h2>
+                        <input class="inputField" required id="habitName" type="text" placeholder="habit name">
+                        <input class="inputField" min=0.01 id="habitCost" type="number" placeholder="cost per day (in dollars)">
+                        <input class="inputField" id="habitDate" type="date">
+                        <input class="inputField" id="submitHabit" type="submit" value="add habit">        
+                    </div>
+                </div>
+
+                <!--Current Rewards-->
+                <h2>Current Rewards</h2>
+                <p class="rewardMessage"></p>
+                <div id="boxForRemoveRewards">
+                    <div id="removeRewards"></div>
+                </div>
+                <!--Current Habits-->
+                <h2>Current Habits</h2>
+                <p id="habitMessage"></p>
+                <div id="boxForRemoveHabits">
+                    <div id="removeHabits"></div>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <button id="openMenuBtn">Menu</button>
+            <h1 id="title">It Pays to Quit</h1>
+            <p id="subtitle">Bad habits can add up over time. It really can pay to quit bad habits. </p>
+            <p id="subtitle">Watch as you save over the weeks, months, and years ahead.</p>
+
+            <div id="flexContainer">
+                <div class="flex1">
+                    <div id="dashboard">
+                        <div id="boxForTheBox">
+                            <div id="totalSavingsBox">
+                                <p><b id="totalSavingsLine">Saved: $<span id="totalSavings"></span></b></p>
+                            </div>
+                        </div>
+                        <div id="messageDisplay"></div>
+                        <div id="boxForHabitDisplay"></div>
+                        <div id="habitDisplay"></div>
+                    </div>
+                </div>
+                
+                <div class="flex2">
+                    <div id="rewardsDisplay">
+                        <h2 id="rewardsTitle">Rewards</h2>
+                        <p class="rewardMessage"></p>
+                        <p id="balance">Balance: $0<span id="balanceValue"></span></p>
+                        <div id="boxForRewardsBox">
+                            <div id="rewardsBox">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="claimed">
+                <h2>Spoils of quitting</h2>
+                <div id="spoilsDiv"></div>
+            </div>
+            
+            
+        </main>
+
+        <footer>
+            <p id="footerText">Created by Tim Wallace</p>
+            <p><a id="footerLink" href="https://timwallace.ca">Timwallace.ca</a></p>
+        </footer>
+        
+    </body>
+</html>

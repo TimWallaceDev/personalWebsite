@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Top Secret Tasks</title>
+	<link href="/static/website/localtasks.css" rel="stylesheet">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+
+                //make sure there is a tasklist
+                if(!localStorage.getItem('tasks')){
+                localStorage.setItem('tasks', 'Add some tasks using the form below!, Delete a task with the X button!');
+                };
+
+                //Add task 
+                document.querySelector('#update').onsubmit = function update_local() {
+                    
+                    let new_task = document.querySelector('#string').value
+
+                    //Insult user if task is empty
+                    if (new_task == '') {
+                        if (!localStorage.getItem('dummy-level')) {
+                            localStorage.setItem('dummy-level', 0)
+                        };
+                        let dummy_level = localStorage.getItem('dummy-level');
+
+                        switch (parseInt(dummy_level)) {
+                            case 0:
+                                new_task = "Hey dummy! you added a blank task!";
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 1:
+                                new_task = "Stop adding blank tasks!!"
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 2:
+                                new_task = "I've told you once and I'll tell you twice..."
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 3:
+                                new_task = "Only dummies add blank tasks!"
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 4:
+                                new_task = "If your tasks are all blank how will you know what to do?"
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 5:
+                                new_task = "You'll never acomplish anything like this"
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 6:
+                                new_task = "Alright.... if you must insist I'll allow it just this once...";
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 7:
+                                new_task = ""
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 8:
+                                new_task = "Only once though!!"
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            case 9:
+                                new_task = "I can do this all day long...."
+                                dummy_level++;
+                                localStorage.setItem('dummy-level', dummy_level);
+                                break;
+                            default:
+                                new_task = "NO TASK"
+                                break;
+                        };
+                    };
+                    //clear the form out
+                    document.querySelector('#string').value = '';
+                    //get task list
+                    let old_tasks = localStorage.getItem('tasks');
+                    //add task to task list
+                    let tasks_array = old_tasks.split(',');
+                    tasks_array.push(new_task);
+                    //checks
+                    console.log("button has been clicked");
+                    console.log(tasks_array);
+                    //save task list
+                    localStorage.setItem('tasks', tasks_array);
+                    
+
+                    update_dom();
+
+                    return false;
+                };
+                
+
+                //this updates the dom with localstorage values
+                function update_dom() {
+                    let tasks = localStorage.getItem('tasks');
+                    let task_array = tasks.split(",");
+                    document.querySelector('#tasks').innerHTML = '';
+                    for (i = 0; i < task_array.length; i++) {
+                        //task list element
+                        let li = document.createElement('li');
+                        li.setAttribute('class', `task-li task${i}`)
+                        //button element
+                        let button = document.createElement('button');
+                        button.setAttribute('class', 'delete_button');
+                        button.setAttribute('id', `task${i}`)
+                        button.setAttribute('data-task', `${task_array[i]}`);
+                        button.innerHTML = "X";
+                        //add event listener to delete buttons
+                        button.addEventListener('click', function () {
+                            //delete task function
+                            console.log(button.id);
+                            let btn = document.querySelector(`#${button.id}`);
+                            //get the task name
+                            let task = btn.dataset.task
+
+                            //display congrats message
+                            let task_congrats = document.querySelector('#congrats')
+                            task_congrats.innerHTML = `It's not always easy to ${task} but you did it. Great Work!`;
+                            setTimeout(function () {
+                                console.log("I see you dev. Nice work, I mean it.");
+                                task_congrats.innerHTML = ""
+                            }, 3000);
+                            //remove the task from the array
+                            let tasks = localStorage.getItem('tasks');
+                            //get task list
+                            let old_tasks = localStorage.getItem('tasks');
+                            //remove task from list
+                            let tasks_array = old_tasks.split(',');
+                            //find where the task to delete is in the array
+                            let index = tasks_array.indexOf(task)
+                            tasks_array.splice(index, 1);
+                            //checks
+                            console.log("spliced!!");
+                            console.log(tasks_array);
+                            //save task list
+                            localStorage.setItem('tasks', tasks_array);
+                            
+
+                            update_dom();
+
+                        });
+                        
+                        li.append(button);
+                        li.append(task_array[i]);
+                        document.querySelector('#tasks').append(li);
+                        console.log("dom has been updated");
+                    };
+                };
+                update_dom();
+            });
+            
+        </script>
+    </head>
+    <body>
+        <h1 class="center">Top Secret Tasks</h1>
+        
+        <p>This site is commited to your privacy. This site never tracks you, nor your tasks. In fact, this site couldn't even if it wanted. It stores all data on your own device using browser local storage. This website doesn't even have a database. Feel free to use this site for anything you need it for! Much love, Tbone.</p>
+
+        <hr>
+
+        <h2 class="center">Tasks</h2>
+
+        <p id="congrats" class="center"></p>
+
+        <div class="center">
+            <div id="tasks" class="auto">
+            
+            </div>
+        </div>
+        
+        <form id="update" class="center">
+            <input type="text" placeholder="New Task" autocomplete="off" autofocus id="string">
+            <button class="add_button">Add Task!</button>
+        </form>
+
+        <hr>
+    </body>
+</html>

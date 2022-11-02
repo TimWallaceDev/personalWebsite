@@ -1,0 +1,61 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: helvetica;
+}
+
+.menu {
+    display: inline-block;
+    text-align: justify;
+    padding: 25px 25px 0px 25px;
+    font-size: 30px;
+}
+
+.main-menu {
+    
+}
+
+#headshot {
+    border-radius: 50px;
+    filter: grayscale(100%);
+    box-shadow: -5px 10px 20px 5px rgba(255, 255, 255, 0.19), 0 6px 6px rgba(255, 255, 255, 0.23);
+
+}
+
+.padding {
+
+    padding: 15px;
+}
+
+.padding-wide {
+    padding: 15px 30px 15px 30px
+}
+
+p {
+    line-height: 2.5;
+    font-size: 20px;
+    padding-top: 25px;
+    text-align: justify;
+    font-weight: 200;
+}
+
+.heading {
+    font-weight: bold;
+}
+
+.webmaster {
+    font-weight: 350;
+}
+
+hr {
+    border: 1px solid white;
+    width: 75%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 640px) {
+   p {
+       font-size: 45px;
+   }
+}

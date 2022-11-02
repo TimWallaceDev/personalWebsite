@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>TBone's Bike Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta chatset="UTF-8">
+<style>
+#spacing-div {
+  height: 75px;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: verdana, sans-serif;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  height: 75px;
+  width: 100%;
+  background-color: white;
+}
+
+.brand {
+  display: inline-block;
+  width: 40%;
+  min-width: 430px;
+  height: 75px;
+}
+
+#header-img {
+  margin: 15px;
+  display: inline-block;
+}
+
+#nav-brand {
+  box-sizing: border-box;
+  color: black;
+  display: inline-block;
+  margin-bottom: 50px;
+  vertical-align: top;
+}
+
+#nav-bar {
+  display: flex;
+  background-color: white;
+  width: 60%;
+  justify-content: space-evenly;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+ 
+}
+
+.nav-link {
+  text-decoration: none;
+  color: orange;
+  font-size: 25px;
+}
+
+.nav-link:hover {
+  color: orangered;
+}
+
+#bikes, #parts, #service {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.product-card {
+  min-width: 300px;
+  max-width: 450px;
+  height: fit-content;
+  min-height: 5px;
+  background-color: orange;
+  border: 5px solid orange;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.product-img {
+  width: 100%;

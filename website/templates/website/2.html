@@ -1,0 +1,53 @@
+{% extends "website/layout.html" %}
+
+{% block css%}
+<link rel="stylesheet" type="text/css" href="static/website/2.css">
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid dark">
+    <div class="center">
+        <h1 class="center">Tim Wallace</h1>
+        <h2>Webmaster</h2>
+        <img class="img-fluid headshot" src="static/website/walla 2.jpg">
+    </div>
+
+    <div class="center text-center">
+        
+        <div class="view-my-work">
+            <p>View my work</p>
+            <p class="arrow-top">|</p>
+            <p class="arrow">V</p>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="container-fluid light">
+    <h2 class="center">Portfolio</h2>
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 some-padding">
+            <h3>Project One</h3>
+            <button>Human Magic</button>
+        </div>
+        <div class="col-sm-12 col-lg-6 some-padding">
+            <h3>Project Two</h3>
+            <button>T-Bones Bike World</button>
+        </div>
+        <div class="col-sm-12 col-lg-6 some-padding">
+            <h3>Project Three</h3>
+            <button>E-Bikestats.com</button>
+        </div>
+        <div class="col-sm-12 col-lg-6 some-padding">
+            <h3>Project Four</h3>
+            <button>Cellar Sessions</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

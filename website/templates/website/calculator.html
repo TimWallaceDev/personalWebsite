@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            #title {
+                height: 15vh;
+                font-family: sans-serif;
+            }
+
+            #calculator {
+                background-color: grey;
+                max-width: 60vh;
+                height: 80vh;
+                border-radius: 10px;
+            }
+
+            #screen {
+                background-color: transparent;
+                height: 25vh;
+                width: 100%;
+            }
+
+            #display {
+                background-color: lightblue;
+                height: 20vh;
+                width: 90%;
+                margin-right: 5%;
+                margin-left: 5%;
+                position: relative;
+                top: 2.5vh;
+                color: black;
+                font-size: 75px;
+                font-family: sans-serif;
+                overflow: hidden;
+                border-radius: 3px;
+            }
+
+            #num {
+                padding-top: 5vh;
+                padding-left: 1vh;
+            }
+
+            #pad {
+                width: 72%;
+                height:45vh;
+                float: left;
+                background-color: grey;
+                margin-left: 1vh;
+            }
+
+            #operator {
+                background-color: grey;
+                width: 25%;
+                height: 53vh;
+                float: right;
+                margin-bottom: 1vh;
+            }
+
+            #enter {
+                background-color: grey;
+                color: orange;
+                width: 72%;
+                height: 10vh;
+                margin-left: 1vh;
+              
+            }
+            
+            button {
+                font-size: 50px;
+                border-radius: 5%;
+                margin-bottom: 0.2vh;
+            }
+            
+
+            .number {
+                width: 32%;
+                height: 24.5%;
+            }
+
+            .operant {
+                width: 93%;
+                height: 25%;
+                margin-bottom: 0.4vh;
+               
+            }
+
+            .go {
+                
+                width: 49%;
+                height: 90%;
+                background-color: orange;
+            }
+
+            #thanks {
+                color: yellow;
+            }
+
+            @media (min-width: 400px) {
+
+                #calculator {
+                    margin-right:auto;
+                    margin-left: auto;
+
+                }
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        <div id="title">
+            <h1>Simple Calculator</h1>
+            <h2>Made by TBone Wallace</h2>
+        </div>
+        
+        <div id="calculator">
+
+            <div id="screen">
+                <div id="display">
+                    <div id="num">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="pad">
+                <button class="number" onclick="displayNum(7)">7</button>
+                <button class="number" onclick="displayNum(8)">8</button>
+                <button class="number" onclick="displayNum(9)">9</button>
+                <button class="number" onclick="displayNum(4)">4</button>
+                <button class="number" onclick="displayNum(5)">5</button>
+                <button class="number" onclick="displayNum(6)">6</button>  
+                <button class="number" onclick="displayNum(1)">1</button>
+                <button class="number" onclick="displayNum(2)">2</button>
+                <button class="number" onclick="displayNum(3)">3</button>
+                <button class="number" onclick="displayNum(0)">0</button>
+                <button class="number" onclick="displayNum('.')">.</button>
+                <button class="number" onclick="deleteNum()">del</button>
+            </div>
+
+            <div id="operator">
+                <button class="operant" onclick="displayNum('*')">*</button>
+                <button class="operant" onclick="displayNum('/')">/</button>
+                <button class="operant" onclick="displayNum('+')">+</button>
+                <button class="operant" onclick="displayNum('-')">-</button>
+            </div>
+
+            <div id="enter">
+                <button class="go" onclick="clearScreen()">AC</button>
+                <button class="go" onclick="calculate()">=</button>
+            </div>
+
+            
+
+        </div>
+
+        <div id="thanks">
+          
+        </div>
+    </body>
+    <script>
+
+        function calculate() {
+            var equation = document.querySelector("#num").innerHTML;
+            var result = eval(equation);
+            var screen = document.querySelector("#num");
+            screen.innerHTML = result;
+
+        }
+
+        function displayNum(number) {
+            console.log(number);
+            var screen = document.querySelector("#num");
+            screen.innerHTML += number;
+        }
+
+
+        function clearScreen() {
+            var screen = document.querySelector("#num");
+            screen.innerHTML = "";
+            console.log("clear");
+        }
+
+        function deleteNum() {
+            var num = document.querySelector("#num").innerHTML;
+            document.querySelector('#num').innerHTML = num.slice(0, -1);
+            console.log("del");     
+        }
+    </script>
+</html>

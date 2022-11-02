@@ -1,0 +1,181 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9EF8DLF3P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-P9EF8DLF3P');
+        </script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="Tim Wallace Dev.">
+	<meta name="keywords" content="Tim Wallace dev">
+	<meta name="author" content="T-Bone">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tim Wallace</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script>
+		function moreprojects() {
+			var more = document.querySelectorAll(".moreprojects");
+			more[0].style.display = "block"
+			more[1].style.display = "block"
+			more[2].style.display = "block"
+			
+			var btn = document.querySelectorAll(".seemore")
+			btn[0].style.display = "none"
+			btn[1].style.display = "none"
+		}
+	</script>
+
+	<link href="/static/website/5.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="/">TW</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="/five-projects">My Projects</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/five-about">About</a>
+				</li>
+				<!--li class="nav-item">
+					<a class="nav-link" href="/five-gear">Gear</a>
+				</li-->
+			</ul>
+		</div>
+	</div>
+</nav>
+<!--Content-->
+
+<h1 class="text-center">My Projects</h1>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+            <div class="card-holder">
+                <div class="card project-card-padding">
+                    <h2 class="padding-15">Frontpage News Tracker</h2>
+					<a class="img-hover" href="https://timwallace.ca/news" target="_blank">
+                    	<img src="static/website/newsThumb1.png" class="img-fluid border-rad-10">
+					</a>
+                    <p class="text-justify pad-top-10">This Project tracks the words that appear on frontpage news. Within seconds, you can usually tell whats happening in the news just by looking at the words used the most. I've also added some features that I think are just fun, like the headline tracker for the word "million".</p>
+                    <a href="https://timwallace.ca/news" target="_blank"><button class="btn btn-primary">Check It out!</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+            <div class="card-holder">
+                <div class="card project-card-padding">
+                    <h2 class="padding-15">Human Magic</h2>
+					<a class="img-hover" href="https://humanmagic.ca" target="_blank">
+                    	<img src="static/website/hmss.png" class="img-fluid border-rad-10">
+					</a>
+                    <p class="text-justify pad-top-10">This website was my first freelance project. I built it for a local Toronto band called 'Human Magic'. This was their main website to show off their content</p>
+                    <a href="https://humanmagic.ca" target="_blank"><button class="btn btn-primary">Check It out!</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+            <div class="card-holder">
+                <div class="card project-card-padding">
+                    <h2 class="padding-15">It Pays To Quit</h2>
+					<a href="https://timwallace.ca/paystoquit" class="img-hover" target="_blank">
+                    	<img src="static/website/paysToQuit.png" class="img-fluid border-rad-10">
+					</a>
+                    <p class="text-justify pad-top-10">I built this site while I was quitting vaping. It allows you to add any bad habits you have, and keep track of how much you save over time by quitting.</p>
+                    <a href="https://timwallace.ca/paystoquit" target="_blank"><button class="btn btn-primary">Check It out!</button></a>
+                </div>
+            </div>
+	</div>
+	
+	
+    </div>
+</div>
+
+<hr>
+
+<h1 class="text-center moreprojects" style="display: none;">More Projects</h1>
+
+<div class="container-fluid moreprojects" style="display: none;">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+            <div class="card-holder">
+                <div class="card project-card-padding">
+                    <h2 class="padding-15">Is it too hot to work?</h2>
+					<a href="https://timwallace.ca/isittoohottowork" class="img-hover" target="_blank">
+                    	<img src="static/website/isittoohottowork.png" class="img-fluid border-rad-10">
+					</a>
+                    <p class="text-justify pad-top-10">I used to work summer jobs doing landscaping, and during extremely hot days we would reference the heat chart to see if the temperatures were too hot to be working. I always thought, there should be an app for this! Now it exists!</p>
+                    <a href="https://timwallace.ca/isittoohottowork" target="_blank"><button class="btn btn-primary">Check It out!</button></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+            <div class="card-holder">
+                <div class="card project-card-padding">
+                    <h2 class="padding-15">Tasks</h2>
+					<a class="img-hover" href="https://timwallace.ca/tasks" target="_blank">
+                    	<img src="static/website/tasksss.png" class="img-fluid border-rad-10">
+					</a>
+                    <p class="text-justify pad-top-10">The quitecential project for any dev is the task app. Getting user input to update the dom is really the heart of any website. I built this site using only javascript, HTML and CSS. I thought a cool use for the localStorage would be a little task list. With large modern internet companies hoovering up any data users may present them, having ownership of your own data is becoming increasingly important for some. I wanted to create a task app that would never be able to track anyones data and that privacy concious individuals would want to use.</p>
+                    <a href="https://timwallace.ca/tasks" target="_blank"><button class="btn btn-primary">Check It out!</button></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<hr class="moreprojects seemore" style="display: none;">
+
+<div class="text-center seemore">
+	<button id="seeMoreBtn" class="btn-primary" onclick="moreprojects()">See More</button>
+</div>
+
+<!--- Footer -->
+<footer>
+<div class="container-fluid padding">
+<div class="row text-center">
+	<div class="col-md-12"> 
+		<hr class="light">
+		<p>timwallacedev@gmail.com</p>
+		<p>Toronto, Ontario.</p>
+	</div>
+
+
+	<div class="col-12">
+		<hr class="light-100">
+		<h5>Tim Wallace</h5>
+	</div>
+</div>
+</div>
+</footer>
+
+
+
+</body>
+</html>
+

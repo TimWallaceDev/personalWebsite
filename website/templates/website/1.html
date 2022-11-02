@@ -1,0 +1,53 @@
+{% extends "website/layout.html" %}
+
+{% block css%}
+<link rel="stylesheet" type="text/css" href="static/website/1.css">
+{% endblock %}
+
+{% block body %}
+<nav class="text-center main-menu">
+    <p class="menu"><a>Home</a></p> 
+
+    <p class="menu"><a>Portfolio</a></p>
+    
+    <p class="menu"><a>Contact</a></p>
+
+    <hr>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-lg-8 col-xl-8">
+            <h1 class="display-3 text-center heading">Tim Wallace</h1>
+            <h2 class="text-center webmaster">Webmaster</h1>
+            <p class="padding-wide text-center">Hi there, my name is Tim and I am freelance web developer. Being a fan of tech history, I've always wanted to know how everything works from start to finish. I work on everything from front-end CSS to Apache configurations and DNS settings. I've always liked the term 'webmaster' and consider myself one. I hope to become a full stack developer. Check out my portfolio and get in touch if you like what you see!</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-lg-3 col-xl-3 text-center">
+            <img class="img-fluid" id="headshot" src="static/website/walla.jpg">
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 text-center">
+            <p>One</p>
+        </div>
+        <div class="col-sm-12 col-lg-6 text-center">
+            <p>Two</p>
+        </div>
+        <div class="col-sm-12 col-lg-6 text-center">
+            <p>Three</p>
+        </div>
+        <div class="col-sm-12 col-lg-6 text-center">
+            <p>Four</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

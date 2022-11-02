@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9EF8DLF3P"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-P9EF8DLF3P');
+        </script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="Tim Wallace Dev.">
+	<meta name="keywords" content="Tim Wallace dev">
+	<meta name="author" content="T-Bone">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tim Wallace</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<link href="/static/website/5.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">TW</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link active" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/five-projects">My Projects</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/five-about">About</a>
+					</li>
+					<!--li class="nav-item">
+						<a class="nav-link" href="/five-gear">Gear</a>
+					</li-->
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--Content-->
+
+
+	<div class="container home">
+		<div class="home-card">
+
+
+			<img src="{% static 'website/walla 2.jpg' %}" class="headshot">
+
+			<p class="padding-5px text-justify" id="home-bio">Hi there! My name is <b>Tim Wallace</b> and I'm a
+				self-taught full stack developer. I love working with Django and building simple, beautiful websites.
+				I'm currently working as a delivery driver to pay the rent, but all my spare time is spent coding. I
+				hope that soon I will be able to move into the tech industry full time. I love solving problems and
+				finding solutions, so if you have a problem that needs solved, I'd be more than happy to help! Get in
+				touch and let's talk!</p>
+		</div>
+	</div>
+
+
+
+	<!--- Footer -->
+	<footer>
+		<div class="container-fluid padding">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<hr class="light">
+					<p>timwallacedev@gmail.com</p>
+					<p>Toronto, Ontario.</p>
+				</div>
+
+
+				<div class="col-12">
+					<hr class="light-100">
+					<h5>&copy; Tim Wallace</h5>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+</body>
+
+</html>

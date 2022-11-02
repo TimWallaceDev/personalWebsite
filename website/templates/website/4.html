@@ -1,0 +1,37 @@
+{% extends "website/layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="static/website/4.css">
+{% endblock %}
+
+{% block body %}
+
+
+<ul class="nav">
+    <li class="nav-item">
+        <a href="/four" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+        <a href="/projects" class="nav-link">Projects</a>
+    </li>
+    <li class="nav-item">
+        <a href="/about" class="nav-link">About</a>
+    </li>
+</ul>
+
+<div class="row">
+
+    <div class="col-sm-1 col-md-4">
+        <img class="img-fluid" src="/static/website/walla.jpg">
+    </div>
+
+    <div class="col-sm-1 col-md-8">
+        <h1 class="text-center">Tim Wallace</h1>
+
+        <p class="text-center">Hi! My name is Tim. I am a self taught web developer living in Toronto, Canada. I love working with python, and use Django for most of my projects. One day I hope do become a full-stack developer.</p>
+    </div>
+</div>
+
+
+
+{% endblock %}
