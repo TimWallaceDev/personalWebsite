@@ -36,7 +36,6 @@ CRONJOBS = ['0 9 * * *', 'news.cron.dailyarchiver']
 
 INSTALLED_APPS = [
     'website',
-    'encyclopedia',
     'news',
     'django_cron',
     'django_crontab',
