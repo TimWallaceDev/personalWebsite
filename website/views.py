@@ -1,7 +1,9 @@
 import requests
 from django.shortcuts import render
+from django.http import HttpResponse
 import smtplib
-
+import requests
+from bs4 import BeautifulSoup
 
 # Create your views here.
 def test():
@@ -42,8 +44,27 @@ def archive(request):
 #PAYS TO QUIT
 
 def paystoquit(request):
-	return render(request, "website/paystoquit.html")
+    return render(request, "website/paystoquit.html")
 
+
+#IMAGE GENERATOR
+
+def imageGenerator(request):
+    if request.method == "GET":
+        return render(request, "website/generator.html")
+
+    if request.method == "POST":
+        try:
+            html_page = requests.get(f"https://images.google.com/search?q={request.POST['keyword']}&tbm=isch").text
+            soup = BeautifulSoup(html_page)
+            images = []
+            for img in soup.findAll('img'):
+                images.append(img.get('src'))
+
+
+            return HttpResponse(images[1])
+        except:
+            return HttpResponse("No images found")
 #TASKS
 
 def tasks(request):
