@@ -322,7 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //clear out form TODO
     document.getElementById("rewardName").value = "";
     document.getElementById("rewardCost").value = "";
-    document.getElementById("rewardurl").value = "";
 
     //reload
     displayRewards();
