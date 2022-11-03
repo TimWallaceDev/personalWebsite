@@ -45,6 +45,46 @@ document.addEventListener("DOMContentLoaded", () => {
   var closeMenuBtn = document.getElementById("closeMenuBtn");
   closeMenuBtn.addEventListener("click", closeMenu);
 
+  //Image Generation settings
+  //get preference
+  if (!localStorage.getItem("imagePreference")){
+    localStorage.setItem("imagePreference", "auto")
+  }
+  console.log(localStorage.getItem("imagePreference"))
+
+  let autoSwitch = document.getElementById("autoSwitch")
+  let genericSwitch = document.getElementById("genericSwitch")
+
+  autoSwitch.addEventListener('change', setImages)
+  genericSwitch.addEventListener('change', setImages)
+
+  function setImages(){
+    if (localStorage.getItem("imagePreference") == "auto"){
+      localStorage.setItem("imagePreference", "generic")
+      setSwitches()
+    }
+    else{
+      localStorage.setItem("imagePreference", "auto")
+      setSwitches()
+    }
+  }
+  
+
+  //set switches
+  function setSwitches(){
+    let autoSwitch = document.getElementById("autoSwitch")
+    let genericSwitch = document.getElementById("genericSwitch")
+    if (localStorage.getItem("imagePreference") == "auto"){
+      autoSwitch.checked = true;
+      genericSwitch.checked = false;
+    }
+    else{
+      autoSwitch.checked = false;
+      genericSwitch.checked = true;
+    }
+  }
+  setSwitches()
+
   //ADD HABIT
   //add event listener to submit button
   var submitHabit = document.getElementById("submitHabit");
@@ -235,9 +275,34 @@ document.addEventListener("DOMContentLoaded", () => {
     //add new reward
     var rewardName = document.getElementById("rewardName").value;
     var rewardCost = document.getElementById("rewardCost").value;
-    var rewardURL = document.getElementById("rewardurl").value;
+    var imagePreference = localStorage.getItem("imagePreference");
 
-    if (rewardURL == ""){
+    //make sure rewward field are complete
+    if (rewardName.length == 0){
+      alert("please enter reward name")
+      return 0
+    }
+    if (rewardCost.length == 0){
+      alert("please enter reward cost")
+      return 0;
+    }
+
+    if (imagePreference == "generic"){
+      rewardURL = "https://cdn-icons-png.flaticon.com/512/1426/1426770.png";
+    }
+    else{
+      let token = document.querySelector('input[name="csrfmiddlewaretoken"]')
+      console.log(token)
+      
+      console.log(token.value)
+      console.log("token ^^^^^")
+      fetch("http://127.0.0.1:8000/generator", {
+        method: "post",
+        keyword: rewardName,
+        csrfmiddlewaretoken: token,
+      })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
       rewardURL = "https://cdn-icons-png.flaticon.com/512/1426/1426770.png";
     }
 

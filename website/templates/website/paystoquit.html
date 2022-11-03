@@ -16,11 +16,23 @@
                 
                 <!--Add Reward-->
                 <div id="addRewards">
+                    <p>Auto Generate Images
+                        <label class="switch">
+                            <input type="checkbox" id="autoSwitch">
+                            <span class="slider round"></span>
+                        </label>
+                    </p>
+                    <p>Use Generic Image
+                        <label class="switch">
+                            <input type="checkbox" id="genericSwitch">
+                            <span class="slider round"></span>
+                        </label>
+                    </p>
                     <div id="rewardForm">
+                        {% csrf_token %}
                         <h2>Add Rewards</h2>
                         <input class="inputField" required id="rewardName" type="text" placeholder="reward name">
                         <input class="inputField" min=0.01 id="rewardCost" type="number" placeholder="One time cost">
-                        <input id="rewardurl" type="text" placeholder="image URL (optional)">
                         <input class="inputField" id="submitReward" type="submit" value="add reward">        
                     </div>
                 </div>
