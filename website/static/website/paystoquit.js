@@ -96,8 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
     var newHabitName = document.getElementById("habitName").value;
     var newHabitCost = document.getElementById("habitCost").value;
     var newHabitQuitDate = document.getElementById("habitDate").value;
-    //TODO
+
     //check that fields are not empty
+
     if (newHabitName.length == 0) {
       alert("please enter name of habit");
       return 0;
@@ -110,6 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("please enter the date you quit this habit");
       return 0;
     }
+
+    //check that habits are not rewards
+    
     //clear out form
     document.getElementById("habitName").value = "";
     document.getElementById("habitCost").value = "";
@@ -291,19 +295,10 @@ document.addEventListener("DOMContentLoaded", () => {
       rewardURL = "https://cdn-icons-png.flaticon.com/512/1426/1426770.png";
     }
     else{
-      let token = document.querySelector('input[name="csrfmiddlewaretoken"]')
-      console.log(token)
-      
-      console.log(token.value)
-      console.log("token ^^^^^")
-      fetch("http://127.0.0.1:8000/generator", {
-        method: "post",
-        keyword: rewardName,
-        csrfmiddlewaretoken: token,
-      })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-      rewardURL = "https://cdn-icons-png.flaticon.com/512/1426/1426770.png";
+      //image URL
+      fetch(`https://timwallace.ca/generator/${rewardname}`)
+      .then((response) => response.text())
+      .then((data) => console.log("data", data ,"endofdata"));
     }
 
     console.log(rewardURL)

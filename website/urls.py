@@ -18,5 +18,5 @@ urlpatterns = [
     path('education', views.education, name="education"),
     path('coinsort', views.coinsort, name="coinsort"),
     path('paystoquit', views.paystoquit, name="paystoquit"),
-    path('generator', views.imageGenerator)
+    path('generator/<str:keyword>', views.imageGenerator)
 ]

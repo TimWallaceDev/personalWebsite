@@ -33,22 +33,19 @@ def paystoquit(request):
 
 #IMAGE GENERATOR
 
-def imageGenerator(request):
+def imageGenerator(request, keyword):
     if request.method == "GET":
-        return render(request, "website/generator.html")
-
-    if request.method == "POST":
         try:
-            html_page = requests.get(f"https://images.google.com/search?q={request.POST['keyword']}&tbm=isch").text
+            html_page = requests.get(f"https://images.google.com/search?q={keyword}&tbm=isch").text
             soup = BeautifulSoup(html_page)
             images = []
             for img in soup.findAll('img'):
                 images.append(img.get('src'))
 
 
-            return HttpResponse(f"<img src='{images[1]}'>")
+            return HttpResponse(f"{images[1]}", content_type="text/plain")
         except:
-            return HttpResponse("No images found")
+            return render(request, "website/generator.html")
 #TASKS
 
 def tasks(request):
