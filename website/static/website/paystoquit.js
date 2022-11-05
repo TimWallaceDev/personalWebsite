@@ -1,3 +1,10 @@
+//TODO
+//make sure habit != reward
+//make sure reward != habit
+//no duplicate rewards
+//no duplicate habits
+
+
 document.addEventListener("DOMContentLoaded", () => {
   //-------------------------------------------------------------------------------------ONLOAD SETUP
   console.log(localStorage.getItem("habitNames"))
@@ -295,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ": $" +
             habitCost +
             "/day | quit since: " +
-            Date(habitDate)
+            habitList[1]
         );
         habitDisplayMenu.append(listel);
       }
@@ -353,6 +360,12 @@ document.addEventListener("DOMContentLoaded", () => {
         while (rewardsDisplayMain.firstChild) {
           rewardsDisplayMain.removeChild(rewardsDisplayMain.lastChild);
         }
+
+        //add placeholder to balance if no rewards
+        if (rewardsListObj.length == 0){
+          var balanceBox = document.getElementById("balanceValue");
+          balanceBox.innerHTML = "0.00";
+        }
     
         //display rewards in Menu
         for (i = 0; i < rewardsListObj.length; i++) {
@@ -388,6 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
           var balanceBox = document.getElementById("balanceValue");
           var spent = parseInt(localStorage.getItem("spent"));
           var balance = totalSaved - spent;
+          console.log("balance", balance)
           balanceBox.innerHTML = balance.toFixed(2);
     
           //main display
