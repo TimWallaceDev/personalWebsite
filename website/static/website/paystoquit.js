@@ -7,7 +7,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   //-------------------------------------------------------------------------------------ONLOAD SETUP
-  console.log(localStorage.getItem("habitNames"))
   if (!localStorage.getItem("habitNames")) {
     //add palceholder to total saved
     var totalSavings = document.getElementById("totalSavings");
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!localStorage.getItem("imagePreference")){
     localStorage.setItem("imagePreference", "auto")
   }
-  console.log(localStorage.getItem("imagePreference"))
 
   let autoSwitch = document.getElementById("autoSwitch")
   let genericSwitch = document.getElementById("genericSwitch")
@@ -48,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //-----------------------------------------------------------------------------------------------------Menu Slider Function
   function openMenu() {
-    console.log("opened Menu")
     var menu = document.querySelector("nav");
     var openMenuBtn = document.getElementById("openMenuBtn");
     openMenuBtn.style.display = "none";
@@ -56,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeMenu() {
-    console.log("closed Menu")
     var main = document.querySelector("main");
     var menu = document.querySelector("nav");
     var openMenuBtn = document.getElementById("openMenuBtn");
@@ -105,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
   submitHabit.addEventListener("click", addHabit);
 
   function addHabit() {
-    console.log("addedhabit")
     //Gather Data from form
     var newHabitName = document.getElementById("habitName").value;
     var newHabitCost = document.getElementById("habitCost").value;
@@ -125,6 +120,21 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("please enter the date you quit this habit");
       return 0;
     }
+    //Make sure habit is not in rewards
+    var rewardsListString = localStorage.getItem("rewardsList");
+    var rewardsListObj = JSON.parse(rewardsListString);
+    if (rewardsListObj){
+      for (let i = 0; i < rewardsListObj.length; i++){
+        if (rewardsListObj[i] == newHabitName){
+          alert("please make sure that habits are not the same as rewards.")
+          return 0
+        }
+      }
+    }
+
+    //make sure no duplicate habits
+    
+
     //clear out form
     document.getElementById("habitName").value = "";
     document.getElementById("habitCost").value = "";
@@ -155,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
   addRewardBtn.addEventListener("click", addReward);
 
   function addReward() {
-    console.log("rewardAdded")
+    console.log("does logging even work??")
     //get local storage and make check to see if it is empty
     if (!localStorage.getItem("rewardsList")) {
       var rewards = [];
@@ -168,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var rewardCost = document.getElementById("rewardCost").value;
     var imagePreference = localStorage.getItem("imagePreference");
 
-    //make sure rewward field are complete
+    //make sure reward field are complete
     if (rewardName.length == 0){
       alert("please enter reward name")
       return 0
@@ -177,11 +187,31 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("please enter reward cost")
       return 0;
     }
+    //make sure reward is not a habit
+    console.log("adding reward, but first checking for duplicates")
+    if (localStorage.getItem("habitNames")) {
+      console.log("you have habits")
+      var habitNames = localStorage.getItem("habitNames");
+      var habitObject = JSON.parse(habitNames);
+      for (let i = 0; i < habitObject.length; i++){
+        console.log(habitObject[i])
+        if (habitObject[i] == rewardName){
+          alert("please make sure that rewards are not the same as Habits.")
+          return 0
+        }
+      }
+    }
+    else {
+      console.log("no habits to check")
+    }
 
+    //make sure that no duplicate rewards
+
+
+    //generate image URL
     if (imagePreference == "generic"){
       rewardURL = "https://cdn-icons-png.flaticon.com/512/1426/1426770.png";
       localStorage.setItem(rewardName + "url", rewardURL);
-      console.log("url added")
       //retreive reward obj
       var rewardsListString = localStorage.getItem("rewardsList");
       var rewardsListObj = JSON.parse(rewardsListString);
@@ -197,14 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //reload
       refreshDisplay();
-      console.log("refresh started")
     }
     else{
       fetch(`http://127.0.0.1:8000/generator/${rewardName}`)
       .then((response) => response.text())
       .then((data) => {
         localStorage.setItem(rewardName + "url", data);
-        console.log("url added")
         //retreive reward obj
         var rewardsListString = localStorage.getItem("rewardsList");
         var rewardsListObj = JSON.parse(rewardsListString);
@@ -220,7 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //reload
         refreshDisplay();
-        console.log("refresh started")
       });
     }
   }
@@ -271,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //calculate savings since quit date
         totalSaved += elapsed * habitCost;
         dailySavings += habitCost;
-        listel.innerHTML = habitObject[i] + ": $ " + habitCost + " per day";
+        listel.innerHTML = habitObject[i] + ": $ " + habitCost.toFixed(2) + " per day";
         habitDisplayMain.append(listel);
     
         /*-------LOOPING FOR MENU----------- */
@@ -325,13 +352,11 @@ document.addEventListener("DOMContentLoaded", () => {
       habitDisplayMain.append(yearlySavings);
     
       /*---------------------------------DISPLAY REWARDS-----------------------*/
-      console.log("rewards displayed")
         //select reward display div
         var rewardsDisplayBox = document.getElementById("removeRewards");
         var rewardsDisplayMain = document.getElementById("rewardsBox");
     
         //check if rewards are empty and add placeholders
-        console.log(localStorage.getItem("rewardsList"))
         if (!localStorage.getItem("rewardsList")) {
           //fill in placeholders
           const placeholders = document.getElementsByClassName("rewardMessage")
@@ -340,7 +365,6 @@ document.addEventListener("DOMContentLoaded", () => {
           rewardsListObj = [];
         }
         else if (localStorage.getItem("rewardsList") == "[]"){
-          console.log('norewards')
           //fill in placeholders
           const placeholders = document.getElementsByClassName("rewardMessage")
           placeholders[0].innerHTML = "Add Rewards Using the Form Above!";
@@ -401,7 +425,6 @@ document.addEventListener("DOMContentLoaded", () => {
           var balanceBox = document.getElementById("balanceValue");
           var spent = parseInt(localStorage.getItem("spent"));
           var balance = totalSaved - spent;
-          console.log("balance", balance)
           balanceBox.innerHTML = balance.toFixed(2);
     
           //main display
@@ -482,13 +505,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             treasure.push(name);
             localStorage.setItem("spoils", JSON.stringify(treasure));
-            console.log("nice buy")
             refreshDisplay();
           });
         }
     
         /*--------------------------------DISPLAY SPOILS-----------------*/
-        console.log("displayedSpoils")
     
         //clear out the div
         let spoilsDiv = document.getElementById("spoilsDiv")
