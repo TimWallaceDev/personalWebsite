@@ -133,6 +133,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //make sure no duplicate habits
+    var habitNames = localStorage.getItem("habitNames");
+    var habitObject = JSON.parse(habitNames);
+    if (habitObject != null){
+      for (let item of habitObject){
+        if (item == newHabitName){
+          alert("no duplicate habits please. If you wish to update this habit, please delete it and add it again.")
+          return 0
+        }
+      }
+    }
     
 
     //clear out form
@@ -165,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
   addRewardBtn.addEventListener("click", addReward);
 
   function addReward() {
-    console.log("does logging even work??")
     //get local storage and make check to see if it is empty
     if (!localStorage.getItem("rewardsList")) {
       var rewards = [];
@@ -188,24 +197,28 @@ document.addEventListener("DOMContentLoaded", () => {
       return 0;
     }
     //make sure reward is not a habit
-    console.log("adding reward, but first checking for duplicates")
+
     if (localStorage.getItem("habitNames")) {
-      console.log("you have habits")
       var habitNames = localStorage.getItem("habitNames");
       var habitObject = JSON.parse(habitNames);
       for (let i = 0; i < habitObject.length; i++){
-        console.log(habitObject[i])
         if (habitObject[i] == rewardName){
           alert("please make sure that rewards are not the same as Habits.")
           return 0
         }
       }
     }
-    else {
-      console.log("no habits to check")
-    }
 
     //make sure that no duplicate rewards
+    //retreive reward obj
+    var rewardsListString = localStorage.getItem("rewardsList");
+    var rewardsListObj = JSON.parse(rewardsListString);
+    for (let item of rewardsListObj){
+      if (item == rewardName){
+        alert("no duplicates allowed. Please delete the duplicate before trying again.")
+        return 0
+      }
+    }
 
 
     //generate image URL

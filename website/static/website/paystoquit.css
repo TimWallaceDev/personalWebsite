@@ -1,3 +1,4 @@
+/*
 :root {
     --main-bg-color: #D52941;
     --nav-color: #990D35;
@@ -10,6 +11,22 @@
     --secondary-color: #111;
     --offwhite: #FFF8E8;
     --habit-item: #98B9AB;
+}
+*/
+
+:root {
+    --main-bg-color: #fff;
+    --nav-color: #990D35;
+    --text-color: #000;
+    --title-color: #000;
+    --dashboard-background-color: #888;
+    --menu-button-color: #990D35;
+    --close-menu-button-color: #D52941;
+    --primary-color: #9bc995;
+    --secondary-color: #111;
+    --offwhite: #FFF8E8;
+    --habit-item: #98B9AB;
+    --reward-box: #888;
 }
 
 
@@ -127,8 +144,8 @@ ul {
 
 .rewardBox {
     flex: 1;
-    border: 2px solid salmon;
-    background-color: salmon;
+    border: 2px solid var(--reward-box);
+    background-color: var(--reward-box);
     border-radius: 5px;
     padding: 15px;
     margin: 5px;
