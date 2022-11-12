@@ -25,6 +25,11 @@ def moreprojects(request):
 
 def archive(request):
     return render(request, "website/archive.html")
+
+def mints(request):
+    return render(request, "website/mints.html")
+
+
 #PAYS TO QUIT
 
 def paystoquit(request):
@@ -46,6 +51,8 @@ def imageGenerator(request, keyword):
             return HttpResponse(f"{images[1]}", content_type="text/plain")
         except:
             return render(request, "website/generator.html")
+
+
 #TASKS
 
 def tasks(request):
