@@ -16,15 +16,21 @@
 }
 
 .rank {
-    width: 80px;
-    min-height: 80px;
+    width: 120px;
+    min-height: 120px;
     background-color: red;
     text-align: center;
     justify-items: center;
 }
+
+.item{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 .image{
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     display: block
 }
 
@@ -33,7 +39,7 @@
     display: block;
     padding: 0;
     margin: 0;
-    font-size: x-small;
+    font-size: small;
 }
 
 #s {
