@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
       refreshDisplay();
     }
     else{
-      fetch(`http://timwallace.ca/generator/${rewardName}`)
+      fetch(`https://timwallace.ca/generator/${rewardName}`)
       .then((response) => response.text())
       .then((data) => {
         localStorage.setItem(rewardName + "url", data);
