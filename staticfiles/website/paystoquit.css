@@ -1,0 +1,418 @@
+/*
+:root {
+    --main-bg-color: #D52941;
+    --nav-color: #990D35;
+    --text-color: #000;
+    --title-color: #000;
+    --dashboard-background-color: #990D35;
+    --menu-button-color: #990D35;
+    --close-menu-button-color: #D52941;
+    --primary-color: #9bc995;
+    --secondary-color: #111;
+    --offwhite: #FFF8E8;
+    --habit-item: #98B9AB;
+}
+*/
+
+:root {
+    --main-bg-color: #fff;
+    --nav-color: #990D35;
+    --text-color: #000;
+    --title-color: #000;
+    --dashboard-background-color: #888;
+    --menu-button-color: #990D35;
+    --close-menu-button-color: #D52941;
+    --primary-color: #9bc995;
+    --secondary-color: #111;
+    --offwhite: #FFF8E8;
+    --habit-item: #98B9AB;
+    --reward-box: #888;
+}
+
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    background-color: var(--main-bg-color);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main {
+    height: auto;
+    width: fit-content;
+    display: inline-block;
+}
+
+#title {
+    font-size: 50px;
+    color: var(--title-color);
+}
+
+#subtitle {
+    font-style: italic;
+    color: var(--text-color);
+    padding: 10px;
+}
+
+#flexContainer {
+    display: flex;
+    padding: 20px;
+}
+
+#dashboard {
+    background-color: var(--dashboard-background-color);
+    border-radius: 10px;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: auto;
+}
+
+
+#totalSavingsBox {
+    padding: 10px 25px;
+    background-color: var(--primary-color);
+    border: 1px solid #272635;
+    border-radius: 10px;
+    width:fit-content;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#totalSavings, #totalSavingsLine {
+    font-size: 25px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.habitItem {
+    background-color: var(--habit-item);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+#dailyDisplay, #yearlyDisplay {
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 20px;
+}
+#yearlyDisplay {
+    font-weight: bold;  
+}
+
+.flex1 {
+    flex: 1;
+    padding: 20px;
+}
+.flex2 {
+    flex: 2;
+    padding: 20px;
+}
+
+/* REWARDS */
+
+#rewardsTitle {
+    margin: 0px;
+}
+#rewardsDisplay {
+    padding: 20px;
+    background-color: #9bc995;
+    border-radius: 15px;
+    height: auto;
+}
+
+#rewardsBox {
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 2;
+}
+
+.rewardBox {
+    flex: 1;
+    border: 2px solid var(--reward-box);
+    background-color: var(--reward-box);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    text-align: center;
+}
+
+.buyBtn {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.buyBtn:hover {
+    color: white;
+}
+
+/* SPOILS */
+
+#claimed {
+    background-color: #98B9AB;
+    margin: 50px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#spoilsDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.spoilContainer {
+    flex: 1;
+    margin: 5px;
+    background-color: aqua;
+    border-radius: 5px;
+}
+
+/* MENU and BUTTONS */
+
+/* sliders*/
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 22px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #21f360;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #3af321;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+nav {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    height: 100%;
+    width:0;
+    display: inline-block;
+    vertical-align: top;
+    background-color: var(--nav-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+.li-habit {
+    list-style-type: none;
+    align-self: left;
+}
+
+.delBtn {
+    border-radius: 5px;
+    border: none;
+    background-color: var(--close-menu-button-color);
+    padding: 5px;
+}
+
+.delBtn:hover {
+    color: white;
+}
+
+#removeHabits, #removeRewards {
+    width:fit-content;
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.li-habit {
+    margin-top: 10px;
+}
+
+#submitHabit, #submitReward {
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    padding: 5px;
+}
+
+#submitHabit:hover {
+    color: white;
+}
+
+#openMenuBtn {
+    background-color: var(--menu-button-color);
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    position:absolute;
+    margin: 15px;
+    border: none;
+}
+
+#openMenuBtn:hover {
+    color: white;
+}
+
+#closeMenuBtn {
+    align-self: center;
+    margin-top: 50px;
+    padding: 10px;
+    background-color: var(--close-menu-button-color);
+    display:block;
+    border-radius: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+}
+
+#closeMenuBtn:hover {
+    color: white; 
+}
+
+#menuTitle {
+    text-decoration: underline;
+}
+
+
+/* FOOTER */
+
+footer {
+    height:fit-content;
+    background-color: #272635;
+    display: block;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footerText {
+    color: var(--offwhite)
+}
+#footerLink {
+    text-decoration: none;
+    color: var(--offwhite);
+}
+
+#footerLink:hover {
+    color:#990D35;
+}
+
+@media screen and (max-width: 600px){
+    nav {
+        width: 50%;
+        transition: 0.2s;
+    }
+    #openMenuBtn {
+        background-color: var(--menu-button-color);
+        position: relative;
+    }
+    .inputField {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 5px;
+    }
+    #flexContainer {
+        display: block;
+        text-align: center;
+        padding: 0;
+    }
+
+    .flex1 {
+        display: block;
+        width: auto;
+        padding: 0;
+    }
+    .flex2 {
+        display: block;
+        width: auto;
+        padding: 0;
+    }
+
+    #dashboard {
+        margin: 5px;
+    }
+
+    #rewardsDisplay {
+        margin: 5px;
+    }
+
+    #claimed {
+        margin: 5px;
+    }
+
+    footer {
+	position: relative;
+    }
+    
+}

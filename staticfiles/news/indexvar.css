@@ -1,0 +1,127 @@
+:root {
+    --background-color: #fff;
+    --card-color: #aaa;
+    --cardborder-color: #1a472a;
+    --h1-color: #1a472a;
+    --h2-color: white;
+    --h5-color: #1a472a;
+    --navlink-color: #000;
+    --navbg-color: #aaa;
+    --footer-color: #1a472a;
+}
+
+.canada {
+    color: red;
+}
+
+a {
+    color: black;
+}
+
+.row {
+    justify-content: space-evenly;
+}
+
+h1 {
+    padding: 20px;
+    font-size: 50px;
+    color: 	var(--h1-color);
+    text-align: center;
+}
+
+h2 {
+    padding: 20px;
+    font-size: 40px;
+    color: 	var(--h2-color);
+}
+
+h5 {
+    font-weight: 700;
+    font-size: 23px;
+    color: var(--h5-color);
+}
+
+.nav-link {
+    color: var(--navlink-color);
+    font-weight: 600;
+}
+
+.nav {
+    background-color: var(--navbg-color);
+}
+
+li {
+    padding: 5px 0px 3px 0px;
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--footer-color);
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: monospace;
+}
+.card {
+    margin: 15px 5px 15px 5px;
+    background-color: var(--card-color);
+    border-color: 	var(--cardborder-color);
+    
+}
+
+.padding {
+    margin: 40px;
+}
+
+.usa {
+    color: white;
+}
+
+
+
+
+
+#addkeyword {
+    color: orange;
+    background-color:#343434;
+    margin: 20px;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+#submit {
+    color: white;
+    background-color: #1a472a;
+    margin: 20px;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+select {
+    background-color: #343434;
+    color: white; 
+    border-radius: 15px;
+    padding: 5px;
+
+}
+input {
+    margin: 5px;
+    background-color: #343434;
+    color: white;
+    border-radius: 15px;
+    padding-left: 15px;
+}
+
+#keywordinputarea {
+    text-align: center;
+}
+
+.padd {
+    padding: 20px;
+}

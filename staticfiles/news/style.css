@@ -1,0 +1,44 @@
+* {
+    border-radius: 15px;
+}
+
+body {
+    background-color: #343434
+}
+h1 {
+    text-align: center;
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+#addkeyword {
+    color: white;
+    background-color:#343434;
+    margin: 20px;
+    padding: 5px;
+}
+
+#submit {
+    color: black;
+    background-color: green;
+    margin: 20px;
+    padding: 5px;
+}
+
+select {
+    background-color: #343434;
+    color: white; 
+
+}
+input {
+    margin: 5px;
+    background-color: #343434;
+    color: white;
+}
+
+#keywordinputarea {
+    text-align: center;
+}

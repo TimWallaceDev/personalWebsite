@@ -1,0 +1,67 @@
+.container {
+    display: block;
+
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.contents {
+    background-color: black;
+    display: inline-flex;
+    flex: 1;
+    min-height: 80px;
+}
+
+.rank {
+    width: 120px;
+    min-height: 120px;
+    background-color: red;
+    text-align: center;
+    justify-items: center;
+}
+
+.item{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.image{
+    width: 100px;
+    height: 100px;
+    display: block
+}
+
+.caption {
+    color: white;
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: small;
+}
+
+#s {
+    background-color: rgb(255, 127, 127);
+}
+
+#a {
+    background-color: rgb(255, 191, 127);
+}
+
+#b {
+    background-color: rgb(255, 223, 127);
+}
+#c {
+    background-color: rgb(255, 255, 127);
+}
+#d{
+    background-color: rgb(191, 255, 127);
+}
+#e{
+    background-color: rgb(127, 255, 127);
+}
+#f{
+    background-color: rgb(127, 255, 255);
+}
