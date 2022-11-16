@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
       refreshDisplay();
     }
     else{
-      fetch(`http://127.0.0.1:8000/generator/${rewardName}`)
+      fetch(`http://timwallace.ca/generator/${rewardName}`)
       .then((response) => response.text())
       .then((data) => {
         localStorage.setItem(rewardName + "url", data);
