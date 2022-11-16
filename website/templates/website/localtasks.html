@@ -87,9 +87,6 @@
                     //add task to task list
                     let tasks_array = old_tasks.split(',');
                     tasks_array.push(new_task);
-                    //checks
-                    console.log("button has been clicked");
-                    console.log(tasks_array);
                     //save task list
                     localStorage.setItem('tasks', tasks_array);
                     
@@ -118,7 +115,6 @@
                         //add event listener to delete buttons
                         button.addEventListener('click', function () {
                             //delete task function
-                            console.log(button.id);
                             let btn = document.querySelector(`#${button.id}`);
                             //get the task name
                             let task = btn.dataset.task
@@ -127,7 +123,6 @@
                             let task_congrats = document.querySelector('#congrats')
                             task_congrats.innerHTML = `It's not always easy to ${task} but you did it. Great Work!`;
                             setTimeout(function () {
-                                console.log("I see you dev. Nice work, I mean it.");
                                 task_congrats.innerHTML = ""
                             }, 3000);
                             //remove the task from the array
@@ -139,12 +134,8 @@
                             //find where the task to delete is in the array
                             let index = tasks_array.indexOf(task)
                             tasks_array.splice(index, 1);
-                            //checks
-                            console.log("spliced!!");
-                            console.log(tasks_array);
                             //save task list
                             localStorage.setItem('tasks', tasks_array);
-                            
 
                             update_dom();
 
@@ -153,7 +144,6 @@
                         li.append(button);
                         li.append(task_array[i]);
                         document.querySelector('#tasks').append(li);
-                        console.log("dom has been updated");
                     };
                 };
                 update_dom();
