@@ -19,5 +19,6 @@ urlpatterns = [
     path('coinsort', views.coinsort, name="coinsort"),
     path('paystoquit', views.paystoquit, name="paystoquit"),
     path('generator/<str:keyword>', views.imageGenerator),
-    path('mints', views.mints)
+    path('mints', views.mints),
+    path('popupdemo', views.popupdemo)
 ]

@@ -29,6 +29,9 @@ def archive(request):
 def mints(request):
     return render(request, "website/mints.html")
 
+def popupdemo(request):
+    return render(request, "website/popup.html")
+
 
 #PAYS TO QUIT
 

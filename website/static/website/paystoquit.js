@@ -4,6 +4,59 @@
 //no duplicate rewards
 //no duplicate habits
 
+function betterAlert(messageText){
+  let topPad = screen.height / 4;
+  let message = messageText;
+  console.log("sending alert");
+  var main = document.createElement("div");
+  main.id = "betterAlert";
+  main.style.textAlign = "center";
+  main.style.position = "absolute";
+  main.style.top = "0";
+  main.style.left = "0";
+  main.style.width = "100%";
+  main.style.height = "100vh"
+  main.style.backgroundColor = "rgba(200,200,200,0.8)";
+  main.style.justifyContent = "center";
+  main.style.boxSizing = "border-box";
+  main.style.zIndex = "6";
+
+  var box = document.createElement("div")
+  box.style.backgroundColor = "#999";
+  box.style.padding = "20px";
+  box.style.borderRadius = "5px";
+  if (screen.width > 300){
+      box.style.width = "300px";
+  }
+  else {
+      box.style.width = screen.width - 5;
+  }
+  
+  box.style.marginRight = "auto";
+  box.style.marginLeft = "auto";
+  box.style.marginTop =`${topPad}px`;
+
+  var messageP = document.createElement("p");
+  messageP.innerHTML = message;
+
+
+  var closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "Close Popup";
+  closeBtn.style.border = "none";
+  closeBtn.style.borderRadius = "5px";
+  closeBtn.addEventListener("click", () => {
+      let main = document.getElementById("betterAlert");
+      body.removeChild(main);
+      console.log("closed");
+  })
+
+  var body = document.querySelector("body");
+
+  box.append(messageP)
+  box.append(closeBtn)
+  main.append(box)
+  body.append(main)
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   //-------------------------------------------------------------------------------------ONLOAD SETUP
@@ -109,15 +162,15 @@ document.addEventListener("DOMContentLoaded", () => {
     //TODO
     //check that fields are not empty
     if (newHabitName.length == 0) {
-      alert("please enter name of habit");
+      betterAlert("please enter name of habit");
       return 0;
     }
     if (newHabitCost.length == 0) {
-      alert("please enter habit daily cost in dollars");
+      betterAlert("please enter habit daily cost in dollars");
       return 0;
     }
     if (newHabitQuitDate.length == 0) {
-      alert("please enter the date you quit this habit");
+      betterAlert("please enter the date you quit this habit");
       return 0;
     }
     //Make sure habit is not in rewards
@@ -126,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (rewardsListObj){
       for (let i = 0; i < rewardsListObj.length; i++){
         if (rewardsListObj[i] == newHabitName){
-          alert("please make sure that habits are not the same as rewards.")
+          betterAlert("please make sure that habits are not the same as rewards.")
           return 0
         }
       }
@@ -138,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (habitObject != null){
       for (let item of habitObject){
         if (item == newHabitName){
-          alert("no duplicate habits please. If you wish to update this habit, please delete it and add it again.")
+          betterAlert("no duplicate habits please. If you wish to update this habit, please delete it and add it again.")
           return 0
         }
       }
@@ -189,11 +242,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //make sure reward field are complete
     if (rewardName.length == 0){
-      alert("please enter reward name")
+      betterAlert("please enter reward name")
       return 0
     }
     if (rewardCost.length == 0){
-      alert("please enter reward cost")
+      betterAlert("please enter reward cost")
       return 0;
     }
     //make sure reward is not a habit
@@ -203,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
       var habitObject = JSON.parse(habitNames);
       for (let i = 0; i < habitObject.length; i++){
         if (habitObject[i] == rewardName){
-          alert("please make sure that rewards are not the same as Habits.")
+          betterAlert("please make sure that rewards are not the same as Habits.")
           return 0
         }
       }
@@ -215,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var rewardsListObj = JSON.parse(rewardsListString);
     for (let item of rewardsListObj){
       if (item == rewardName){
-        alert("no duplicates allowed. Please delete the duplicate before trying again.")
+        betterAlert("no duplicates allowed. Please delete the duplicate before trying again.")
         return 0
       }
     }
