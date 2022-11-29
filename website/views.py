@@ -3,12 +3,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 from bs4 import BeautifulSoup
+from .models import BlogPost
 
 # Create your views here.
             
 #MAIN WEBSITE
 
 def five(request):
+    print("welcome home")
     return render(request, "website/5.html")
 
 def fiveAbout(request):
@@ -38,6 +40,13 @@ def popupdemo(request):
 def paystoquit(request):
     return render(request, "website/paystoquit.html")
 
+#musicquiz
+def musicquiz(request):
+    return render(request, "website/musicquiz.html")
+
+def musicquiz2(request):
+    return render(request, "website/musicquiz2.html")
+
 
 #IMAGE GENERATOR
 
@@ -54,6 +63,50 @@ def imageGenerator(request, keyword):
             return HttpResponse(f"{images[1]}", content_type="text/plain")
         except:
             return render(request, "website/generator.html")
+
+#BLOG
+
+def blog(request):
+    posts = BlogPost.objects.filter(public=True)
+    return render(request, "website/blog.html", {
+            "posts":posts,
+        })
+
+def blogpost(request):
+    if request.method == "POST":
+        #TODO
+        #authenticate
+        #Save form data to database
+        try:
+            public = request.POST["public"]
+            if public == "on":
+                public = True
+            else:
+                public = False
+        except:
+            public = False
+        title = request.POST["title"]
+        content = request.POST["content"]
+        img = request.POST["img"]
+        entry = BlogPost(public=public, title=title, content=content, img=img)
+        print(entry.public, entry.title, entry.content)
+        entry.save()
+        return render(request, "website/blogpost.html")
+    
+
+    if request.method == "GET":
+
+        #TODO
+        #authentication
+        
+
+        return render(request, "website/blogpost.html")
+
+def blogSecret(request):
+    secretPosts = BlogPost.objects.filter(public=False)
+    return render(request, "website/blog.html", {
+        "posts": secretPosts
+    })
 
 
 #TASKS

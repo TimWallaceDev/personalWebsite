@@ -1,0 +1,39 @@
+<html>
+    <head>
+        
+        
+    </head>
+
+    <body>
+        <h1>Spotify Web Playback SDK Quick Start</h1>
+        <script src="https://sdk.scdn.co/spotify-player.js">
+
+        </script>
+        <script>
+            window.onSpotifyWebPlaybackSDKReady = () => {
+                // You can now initialize Spotify.Player and use the SDK
+                var player = new Spotify.Player({
+                  name: 'My First Player (Trap shit)',
+                  getOAuthToken: callback => {
+                    // Run code to get a fresh access token
+                
+                    callback('BQDXb9LxqfB2vaeKa71PQ04MO_Epc4IDjwaxgg423V5TG0NlqKlbLw_eM_fY5DOtzvhUnoBlTNiGQ6INhTJWSNpKEoWafJcIpwtigiSj1Try2v5NZyP4U76q9QYJG9uKL1N5XCXiZkFl9SOlrtJikXKAGrU_Ew2OVY7TEWDRp6P9gYr8IqHgA3Q88i8EOS3GY1YAdiH8G0jZlM7idJFji7w');
+                  },
+                  volume: 0.5
+                });
+
+
+                player.connect().then(success => {
+                    if (success) {
+                      console.log('The Web Playback SDK successfully connected to Spotify!');
+                    }
+                  })
+              };
+
+
+              console.log("done")
+              
+        </script>
+    </body>
+
+</html>

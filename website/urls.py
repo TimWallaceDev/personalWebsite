@@ -20,5 +20,10 @@ urlpatterns = [
     path('paystoquit', views.paystoquit, name="paystoquit"),
     path('generator/<str:keyword>', views.imageGenerator),
     path('mints', views.mints),
-    path('popupdemo', views.popupdemo)
+    path('popupdemo', views.popupdemo),
+    path('musicquiz', views.musicquiz),
+    path('musicquiz2', views.musicquiz2),
+    path('blog', views.blog),
+    path('blogpost', views.blogpost),
+    path('blogsecret', views.blogSecret)
 ]

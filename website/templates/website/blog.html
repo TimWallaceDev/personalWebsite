@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tim's Blog</title>
+    </head>
+    <body>
+        <h1>Tim's Blog</h1>
+        <p>Welcome to my blog. It's currently under construction, so please check back tomorrow!</p>
+        {% for post in posts %}
+        <h3>{{ post.title }}</h3>
+        <p>{{post.date }}</p>
+        <img src="{{ post.img }}">
+        <p>{{ post.content }}</p>
+        <hr>
+        {% empty %}
+        <p>No Posts</p>
+        {% endfor %}
+
+    </body>
+</html>

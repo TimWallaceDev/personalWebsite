@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create A Blog Post</title>
+    </head>
+    <body>
+        <h1>Create a Blog Post</h1>
+        <form action="/blogpost" method="post">
+            {%  csrf_token %}
+            <input type="text" name="title" placeholder="title">
+            <br>
+            <input type="checkbox" id="public" name="public">
+            <label for="public">Public:</label>
+            <br>
+            <textarea name="content" >Enter Content here</textarea>
+            <br>
+            <input type="text" name="img" palceholder="image URL" id="image">
+            <label for="image">Image:</label>
+            <br>
+            <input type="submit" value="submit">
+        </form>
+    </body>
+</html>
