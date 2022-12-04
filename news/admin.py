@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from news.models import *
+from website.models import *
 
 # Register your models here.
 class DeepArchiveAdmin(admin.ModelAdmin):
@@ -28,6 +29,10 @@ class MillionsAdmin(admin.ModelAdmin):
 class ThirtyThreesAdmin(admin.ModelAdmin):
     list_display = ('id', 'headline', 'date')
 
+#Blog
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('id', 'date', 'public', 'title', 'content', 'img')
+
 
 admin.site.register(BoneBrothArchive, BoneBrothArchiveAdmin)
 admin.site.register(DeepArchive, DeepArchiveAdmin)
@@ -37,4 +42,5 @@ admin.site.register(Whitelist, EntryWhitelist)
 admin.site.register(Blacklist, EntryBlacklist)
 admin.site.register(Millions, MillionsAdmin)
 admin.site.register(ThirtyThrees, ThirtyThreesAdmin)
+admin.site.register(BlogPost, BlogPostAdmin)
 

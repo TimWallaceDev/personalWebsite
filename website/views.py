@@ -1,9 +1,15 @@
 import requests
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 import requests
 from bs4 import BeautifulSoup
-from .models import BlogPost
+from .models import *
+import random
+
+#spotipy
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+from .artists import *
 
 # Create your views here.
             
@@ -46,6 +52,114 @@ def musicquiz(request):
 
 def musicquiz2(request):
     return render(request, "website/musicquiz2.html")
+
+#lists
+
+def lists(request):
+    if request.method == "POST":
+        print("posting")
+        if "groceryItem" in request.POST:
+            newItem = GroceryItem(name=request.POST["groceryItem"])
+            newItem.save()
+            print("addded grocery")
+
+        if "funThing" in request.POST:
+            newItem = FunThing(name=request.POST["funThing"])
+            newItem.save()
+            print("addded fun")
+
+        if "chore" in request.POST:
+            newItem = Chore(name=request.POST["chore"])
+            newItem.save()
+            print("addded chore", request.POST["chore"])
+
+        if "thingToBuy" in request.POST:
+            newItem = ThingToBuy(name=request.POST["thingToBuy"])
+            newItem.save()
+            print("addded thing to buy")
+
+        return redirect("/lists")
+
+    else:
+        print("getting")
+        groceries = GroceryItem.objects.all()
+        funThings = FunThing.objects.all()
+        chores = Chore.objects.all()
+        thingsToBuy = ThingToBuy.objects.all()
+        return render(request, "website/lists.html",{
+            "groceries": groceries,
+            "chores": chores,
+            "funThings": funThings,
+            "thingsToBuy": thingsToBuy,
+        })
+
+def listDelete(request):
+    if request.method == "POST":
+        if "groceryItem" in request.POST:
+            toDelete = GroceryItem.objects.filter(name=request.POST["groceryItem"])
+            toDelete.delete()
+            print("deleted!", toDelete)
+
+        if "funThing" in request.POST:
+            toDelete = FunThing.objects.filter(name=request.POST["funThing"])
+            toDelete.delete()
+            print("deleted!", toDelete)
+
+        if "chore" in request.POST:
+            toDelete = Chore.objects.filter(name=request.POST["chore"])
+            toDelete.delete()
+            print("deleted!", toDelete)
+
+        if "thingToBuy" in request.POST:
+            toDelete = ThingToBuy.objects.filter(name=request.POST["thingToBuy"])
+            toDelete.delete()
+            print("deleted!", toDelete)
+
+        return redirect("/lists")
+
+#spotipy
+def spotipy1(request):
+
+    #grab 2 random artists
+    artist1 = random.randint(0,22)
+    artist2 = random.randint(0,22)
+    while artist2 == artist1:
+        artist2 = random.randint(0,22)
+
+    dictkeys = dict.keys(artists)
+    keys = []
+    for key in dictkeys:
+        keys.append(key)
+
+    #get info for each artist
+    artist1_uri = 'spotify:artist:' + artists[keys[artist1]]
+    artist2_uri = 'spotify:artist:' + artists[keys[artist2]]
+
+    spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
+
+    results1 = spotify.artist(artist1_uri)
+    top = spotify.artist_top_tracks(artist1_uri)
+    preview = top['tracks'][0]['preview_url']
+    print(top['tracks'][0])
+    print(preview)
+
+    popularity1 = results1['popularity']
+    img1 = results1['images'][2]['url']
+
+    results2 = spotify.artist(artist2_uri)
+    popularity2 = results2['popularity']
+    img2 = results2['images'][2]["url"]
+
+    #render the webpage
+    return render(request, "website/spotipy.html", {
+        "preview": preview,
+        "artist1": results1,
+        "img1": img1,
+        "pop1": popularity1,
+        "artist2": results2,
+        "img2": img2,
+        "pop2": popularity2,
+    })
 
 
 #IMAGE GENERATOR

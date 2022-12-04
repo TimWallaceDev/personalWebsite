@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lists</title>
+
+    </head>
+    <body>
+        <h1>Lists</h1>
+        
+
+        <h2>Grocery List</h2>
+        <form action="/lists" method="post">
+            {% csrf_token %}
+            <input type="text" name="groceryItem" placeholder="Grocery Item">
+            <input type="submit" value="submit">
+        </form>
+
+        
+
+        <ul>
+            {% for grocery in groceries %}
+            <li>
+                <p>{{ grocery.name }}</p>
+                <form action="/listDelete" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="groceryItem" value="{{ grocery.name }}">
+                    <input type="submit" value="X">
+                </form> 
+            </li>
+            {% endfor %}
+        </ul>
+        
+
+        <h2>Fun Things</h2>
+        <form action="/lists" method="post">
+            {% csrf_token %}
+            <input type="text" name="funThing" placeholder="Fun Thing">
+            <input type="submit" value="submit">
+        </form>
+
+        <ul>
+            {% for thing in funThings %}
+            <li>
+                <p>{{ thing.name }}</p>
+                <form action="/listDelete" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="funThing" value="{{ thing.name }}">
+                    <input type="submit" value="X">
+                </form> 
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Chores</h2>
+        <form action="/lists" method="post">
+            {% csrf_token %}
+            <input type="text" name="chore" placeholder="Chore">
+            <input type="submit" value="submit">
+        </form>
+
+        <ul>
+            {% for chore in chores %}
+            <li>
+                <p>{{ chore.name }}</p>
+                <form action="/listDelete" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="chore" value="{{ chore.name }}">
+                    <input type="submit" value="X">
+                </form> 
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Things to buy</h2>
+        <form action="/lists" method="post">
+            {% csrf_token %}
+            <input type="text" name="thingToBuy" placeholder="Thing To Buy">
+            <input type="submit" value="submit">
+        </form>
+
+        <ul>
+            {% for thing in thingsToBuy %}
+            <li>
+                <p>{{ thing.name }}</p>
+                <form action="/listDelete" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="thingToBuy" value="{{ thing.name }}">
+                    <input type="submit" value="X">
+                </form> 
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

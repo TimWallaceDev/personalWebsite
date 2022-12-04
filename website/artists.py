@@ -1,0 +1,28 @@
+artists = {
+
+'drake' : '3TVXtAsR1Inumwj472S9r4',
+'taylorSwift' : '06HL4z0CvFAxyc27GXpf02',
+'chrisBrown' : '7bXgB6jMjp9ATFy66eO08Z',
+'mariahCarrey' : '4iHNK0tOyZPYnBU7nGAgpQ',
+'beyonce' : '6vWDO969PvNqNYHIOW5v0m',
+'humanMagic' : '66FW5R1nl4d7DFlYPjOy97',
+'thundercat' :'4frXpPxQQZwbCu3eTGnZEw',
+'ye' : '5K4W6rqBFWDnAN6FQUkS6x',
+'dojaCat' : '5cj0lLjcoR7YOSnhnX0Po5',
+'kendrickLamar' : '2YZyLoL8N0Wb9xBt1NhZWg',
+'pushaT' : '0ONHkAv9pCAFxb0zJwDNTy',
+'RageAgainstTheMachine' : '2d0hyoQ5ynDBnkvAbJKORj',
+'kaytranada' : '6qgnBH6iDM91ipVXv28OMu',
+'casiopea' : '0lRXEutklZUeNdWIJA1NI0',
+'lilB' : '4bbjivSh1oG4NOc7uYHfw5',
+'StevieWonder' : '7guDJrEfX3qb6FEbdPA5qi',
+'biggie' : '5me0Irg2ANcsgc93uaYrpb',
+'nirvana' : '6olE6TJLqED3rqDCT0FyPh',
+'lilPump' :'3wyVrVrFCkukjdVIdirGVY',
+'tylerTheCreator' : '4V8LLVI7PbaPR0K2TGSxFF',
+'marvinGaye' : '3koiLjNrgRTNbOwViDipeA',
+'earthWindAndFire' : '4QQgXkCYTt3BlENzhyNETg',
+'jayZ' : '3nFkdlSjzX9mRTtwJOzDYB',
+'jCole' : '6l3HvQ5sa6mXTsMTB19rO5',
+
+}

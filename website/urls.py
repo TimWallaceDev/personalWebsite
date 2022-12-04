@@ -25,5 +25,8 @@ urlpatterns = [
     path('musicquiz2', views.musicquiz2),
     path('blog', views.blog),
     path('blogpost', views.blogpost),
-    path('blogsecret', views.blogSecret)
+    path('blogsecret', views.blogSecret),
+    path('spotipy', views.spotipy1),
+    path('lists', views.lists),
+    path('listDelete', views.listDelete),
 ]

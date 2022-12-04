@@ -11,17 +11,23 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+#Initialize environment variables
+env = environ.Env()
+environ.Env.read_env()
+SPOTIPY_CLIENT_ID = env('SPOTIPY_CLIENT_ID')
+SPOTIPY_CLIENT_SECRET = env('SPOTIPY_CLIENT_SECRET')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jwzc*ys1c)#5g$re6n7x$*5o+2^u@pj9$n9t5&c55d#@q$ixbm'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
