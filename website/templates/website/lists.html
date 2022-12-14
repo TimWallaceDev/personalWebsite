@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Lists</title>
-
+        <link rel="stylesheet" href="/static/website/lists.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <h1>Lists</h1>
@@ -20,11 +21,11 @@
         <ul>
             {% for grocery in groceries %}
             <li>
-                <p>{{ grocery.name }}</p>
-                <form action="/listDelete" method="post">
+                <p class="inline">{{ grocery.name }}</p>
+                <form action="/listDelete" method="post" class="inline">
                     {% csrf_token %}
                     <input type="hidden" name="groceryItem" value="{{ grocery.name }}">
-                    <input type="submit" value="X">
+                    <input type="submit" value="X" class="red">
                 </form> 
             </li>
             {% endfor %}
@@ -41,11 +42,11 @@
         <ul>
             {% for thing in funThings %}
             <li>
-                <p>{{ thing.name }}</p>
-                <form action="/listDelete" method="post">
+                <p class="inline">{{ thing.name }}</p>
+                <form action="/listDelete" method="post" class="inline">
                     {% csrf_token %}
                     <input type="hidden" name="funThing" value="{{ thing.name }}">
-                    <input type="submit" value="X">
+                    <input type="submit" value="X" class="red">
                 </form> 
             </li>
             {% endfor %}
@@ -61,11 +62,11 @@
         <ul>
             {% for chore in chores %}
             <li>
-                <p>{{ chore.name }}</p>
-                <form action="/listDelete" method="post">
+                <p class="inline">{{ chore.name }}</p>
+                <form action="/listDelete" method="post" class="inline">
                     {% csrf_token %}
                     <input type="hidden" name="chore" value="{{ chore.name }}">
-                    <input type="submit" value="X">
+                    <input type="submit" value="X" class="red">
                 </form> 
             </li>
             {% endfor %}
@@ -81,11 +82,11 @@
         <ul>
             {% for thing in thingsToBuy %}
             <li>
-                <p>{{ thing.name }}</p>
-                <form action="/listDelete" method="post">
+                <p class="inline">{{ thing.name }}</p>
+                <form action="/listDelete" method="post" class="inline">
                     {% csrf_token %}
                     <input type="hidden" name="thingToBuy" value="{{ thing.name }}">
-                    <input type="submit" value="X">
+                    <input type="submit" value="X" class="red">
                 </form> 
             </li>
             {% endfor %}
