@@ -4,6 +4,23 @@
 //no duplicate rewards
 //no duplicate habits
 
+function progress(){
+  let progress = document.createElement("progress");
+  progress.max = 5;
+  progress.value = 1;
+  progress.id = "progress";
+
+  setTimeout(() => {
+    progress.value = 2;
+  }, 1000)
+
+  
+
+
+  var menu = document.querySelector("nav");
+  menu.append(progress);
+}
+
 function betterAlert(messageText){
   let topPad = screen.height / 4;
   let message = messageText;
@@ -273,6 +290,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    progress()
+    var currentProgress = document.getElementById("progress");
+
 
     //generate image URL
     if (imagePreference == "generic"){
@@ -295,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
       refreshDisplay();
     }
     else{
-      fetch(`http://timwallace.ca/generator/${rewardName}`)
+      fetch(`https://timwallace.ca/generator/${rewardName}`)
       .then((response) => response.text())
       .then((data) => {
         localStorage.setItem(rewardName + "url", data);

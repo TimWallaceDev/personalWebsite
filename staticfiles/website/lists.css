@@ -1,0 +1,9 @@
+.inline {
+    display: inline;
+}
+
+.red {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+}
