@@ -1,3 +1,4 @@
+//is it fresh?
 //TODO
 //make sure habit != reward
 //make sure reward != habit
@@ -474,11 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
           rewardsDisplayMain.removeChild(rewardsDisplayMain.lastChild);
         }
 
-        //add placeholder to balance if no rewards
-        if (rewardsListObj.length == 0){
-          var balanceBox = document.getElementById("balanceValue");
-          balanceBox.innerHTML = "0.00";
-        }
+        
     
         //display rewards in Menu
         for (i = 0; i < rewardsListObj.length; i++) {
@@ -513,6 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
           );
           var balanceBox = document.getElementById("balanceValue");
           var spent = parseInt(localStorage.getItem("spent"));
+          console.log("spent:", spent)
           var balance = totalSaved - spent;
           balanceBox.innerHTML = balance.toFixed(2);
     
@@ -559,6 +557,26 @@ document.addEventListener("DOMContentLoaded", () => {
     
           //append element finally
           rewardsDisplayMain.append(newMainEl);
+        }
+
+        //add placeholder to balance if no rewards
+        console.log(balance)
+        console.log(numberOfHabits)
+        if (numberOfHabits == 0){
+          balanceBox.innerHTML = "0.00";
+          console.log("balance placeholded")
+        }
+        else {
+          //total Banked
+          var totalSaved = parseFloat(
+            document.getElementById("totalSavings").innerHTML
+          );
+          var balanceBox = document.getElementById("balanceValue");
+          var spent = parseInt(localStorage.getItem("spent"));
+          console.log("spent:", spent)
+          var balance = totalSaved - spent;
+          balanceBox.innerHTML = balance;
+          console.log("big balance")
         }
     
         let availableBtns = document.querySelectorAll(".available");
