@@ -10,15 +10,30 @@ function progress(){
   progress.value = 1;
   progress.id = "progress";
 
+  var menu = document.querySelector("#addRewards");
+  menu.append(progress);
+
   setTimeout(() => {
     progress.value = 2;
-  }, 1000)
+  }, 200)
+
+  setTimeout(() => {
+    progress.value = 3;
+  }, 400)
+
+  setTimeout(() => {
+    progress.value = 4;
+  }, 600)
+
+  setTimeout(() => {
+    progress.value = 5;
+    menu.removeChild(progress);
+  }, 800)
 
   
 
 
-  var menu = document.querySelector("nav");
-  menu.append(progress);
+  
 }
 
 function betterAlert(messageText){
