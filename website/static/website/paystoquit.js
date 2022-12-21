@@ -6,33 +6,23 @@
 
 function progress(){
   let progress = document.createElement("progress");
-  progress.max = 5;
+  progress.max = 20;
   progress.value = 1;
   progress.id = "progress";
+  progress.innerHTML = "Finding Image"
 
   var menu = document.querySelector("#addRewards");
   menu.append(progress);
 
-  setTimeout(() => {
-    progress.value = 2;
-  }, 200)
+  for (let i = 0; i < 50; i++){
+    setTimeout(() => {
+      progress.value = i;
+    }, i * 20)
+  }
 
   setTimeout(() => {
-    progress.value = 3;
-  }, 400)
-
-  setTimeout(() => {
-    progress.value = 4;
-  }, 600)
-
-  setTimeout(() => {
-    progress.value = 5;
     menu.removeChild(progress);
-  }, 800)
-
-  
-
-
+  }, 1100)
   
 }
 
@@ -305,9 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    progress()
-    var currentProgress = document.getElementById("progress");
-
 
     //generate image URL
     if (imagePreference == "generic"){
@@ -330,6 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
       refreshDisplay();
     }
     else{
+      progress()
       fetch(`https://timwallace.ca/generator/${rewardName}`)
       .then((response) => response.text())
       .then((data) => {
