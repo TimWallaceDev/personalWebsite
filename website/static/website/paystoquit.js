@@ -563,6 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(balance)
         console.log(numberOfHabits)
         if (numberOfHabits == 0){
+          var balanceBox = document.getElementById("balanceValue");
           balanceBox.innerHTML = "0.00";
           console.log("balance placeholded")
         }
